@@ -80,7 +80,7 @@ INSTALL_ROOT	=
 
 GSM_INSTALL_ROOT = $(INSTALL_ROOT)
 GSM_INSTALL_LIB = $(GSM_INSTALL_ROOT)/lib
-GSM_INSTALL_INC = $(GSM_INSTALL_ROOT)/inc
+GSM_INSTALL_INC = $(GSM_INSTALL_ROOT)/include/gsm
 GSM_INSTALL_MAN = $(GSM_INSTALL_ROOT)/man/man3
 
 
@@ -122,7 +122,7 @@ BIN	= $(ROOT)/bin
 SRC	= $(ROOT)/src
 LIB	= $(ROOT)/lib
 TLS	= $(ROOT)/tls
-INC	= $(ROOT)/inc
+INC	= $(ROOT)/include/gsm
 
 # Flags
 
@@ -282,6 +282,8 @@ TOAST_INSTALL_TARGETS =	\
 all:		$(LIBGSM) $(TOAST) $(TCAT) $(UNTOAST)
 		@-echo $(ROOT): Done.
 
+libgsm:     $(LIBGSM)
+
 tst:		$(TST)/lin2cod $(TST)/cod2lin $(TOAST) $(TST)/test-result
 		@-echo tst: Done.
 
@@ -296,6 +298,7 @@ misc:		$(TLS)/sweet $(TLS)/bitter $(TLS)/sour $(TLS)/ginger 	\
 install:	toastinstall gsminstall
 		@-echo install: Done.
 
+libgsm-install : gsminstall
 
 # The basic API: libgsm
 
